@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, StyleSheet, Button } from 'react-native';
 
+import { Context } from '../context/BlogContext';
+
 const CreateScreen = () => {
+  const { addBlogPost } = useContext(Context);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
@@ -19,7 +22,10 @@ const CreateScreen = () => {
         onChangeText={(text) => setContent(text)}
         style={styles.input}
       />
-      <Button title="Add Blog Post" />
+      <Button
+        title="Add Blog Post"
+        onPress={() => addBlogPost(title, content)}
+      />
     </View>
   );
 };
