@@ -24,7 +24,7 @@ const getBlogPosts = (dispatch) => {
   };
 };
 
-const addBlogPost = (dispatch) => {
+const addBlogPost = () => {
   return async (title, content, callback) => {
     await jsonServer.post('/blogposts', { title, content });
 
